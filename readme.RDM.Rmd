@@ -124,20 +124,12 @@ write.csv(maize1_snp, "down_maize1_snp.csv", row.names = FALSE)
 
 ```
 
-Replacing ?/? with -\-. Repeat for all 10 down chromosmes
-```{r}
-down_maize1_snp <- read.csv("down_maize1_snp.csv")
-down_maize1_snp <- read.csv("down_maize2_snp.csv")
-down_maize1_snp[down_maize1_snp == "?/?"] <- "-/-"
-write.csv(down_maize2_snp, "edited-down_maize1_snps.csv", row.names = FALSE)
-```
-Arranging in increasing order based on "Position". Repeat for all 10 chromosomes
+Arranging in decreasing order based on "Position". Repeat for all 10 chromosomes
 
 ```{r}
 maize1_snp <- maize1_snp[order(maize1_snp$Position),]
 write.csv(maize1_snp, "up_maize1_snp.csv", row.names = FALSE)
 ```
-
 
 ## Teosinte
 
@@ -171,10 +163,6 @@ write.csv(teosinte1_snp, "down_teosinte1_snp.csv", row.names = FALSE)
 teosinte1_snp$Position <- as.numeric(teosinte1_snp$Position)
 teosinte1_snp <- teosinte1_snp[order(teosinte1_snp$Position),]
 write.csv(teosinte1_snp, "up_teosinte1_snp.csv", row.names = FALSE)
-down_teosinte1_snp <- read.csv("down_teosinte1_snp.csv")
-down_teosinte1_snp <- read.csv("down_teosinte1_snp.csv")
-down_teosinte1_snp[down_teosinte1_snp == "?/?"] <- "-/-"
-write.csv(down_teosinte1_snp, "edited-down_teosinte1_snps.csv", row.names = FALSE)
 ```
 
 ## Data visualization
