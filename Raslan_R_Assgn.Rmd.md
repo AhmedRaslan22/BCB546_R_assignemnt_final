@@ -61,7 +61,6 @@ Extracting columns; SNP_ID, Chromosome and Position
 ```{r}
 library(dplyr)
 cut_snp_position <- select(readable_snp_position, SNP_ID, Chromosome, Position)
-View(cut_SNP_position)
 write.csv(cut_snp_position, "cut_snp_position.csv", row.names = FALSE)
 ```
 
@@ -194,8 +193,6 @@ cut_snp_data_filtered <- cut_snp_position %>%
 Creating a density plot of the SNP positions on Chromosome 1 and adds labels and a title to the plot using ggplot2. Repeat for all 10 chromosomes
 
 ```{r}
-install.packages("gplots")
-library(gplots)
 library(ggplot2)
 ggplot(data = cut_snp_data_filtered[cut_snp_data_filtered$Chromosome == 1, ], aes(x = Position)) +
      geom_density() +
