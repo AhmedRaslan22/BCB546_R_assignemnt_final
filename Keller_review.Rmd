@@ -7,8 +7,10 @@ output: html_document
 I think you did very well. Just a few things that did not want to run for me that are commented below.
 Great work!
 
+Ahmed's comment on your review: I attached another R markdown file that have updated commands that won't stuck at all as well as an HTML ouput file.
 
-First is that there is not Rmarkdown file, just a README.md
+
+First is that there is not Rmarkdown file, just a README.md/ 
 Second, I was unable to run the whole script all at once. It got stuck on the the code below with the following error:
 Error: Incomplete expression: write.csv(headsoff_transposed_maize_fang, "headsoff_transposed_maize_fang.csv", row.nam
 ```{r}
