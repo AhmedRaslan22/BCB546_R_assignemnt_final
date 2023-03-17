@@ -1,0 +1,53 @@
+---
+title: "Keller_Reveiw"
+author: "Alex Keller"
+date: "2023-03-16"
+output: html_document
+---
+I think you did very well. Just a few things that did not want to run for me that are commented below.
+Great work!
+
+
+First is that there is not Rmarkdown file, just a README.md
+Second, I was unable to run the whole script all at once. It got stuck on the the code below with the following error:
+Error: Incomplete expression: write.csv(headsoff_transposed_maize_fang, "headsoff_transposed_maize_fang.csv", row.nam
+```{r}
+write.csv(headsoff_transposed_maize_fang, "headsoff_transposed_maize_fang.csv", row.nam
+```
+
+The fix here is just finishing the line of code.
+```{r}
+write.csv(headsoff_transposed_maize_fang, "headsoff_transposed_maize_fang.csv", row.names = FALSE)
+```
+
+
+Make sure that you have the code for all 10 seperate chromosomes writen so that it can be ran all at once and have all the chromsome files made.
+
+Due to what I have mentioned above, I am unable to run this code because you don't have this file being made in the code as it is currently.
+Error message I got:
+  Warning: cannot open file 'down_maize2_snp.csv': No such file or directoryError in file(file, "rt") : cannot open the connection
+  Error in is.data.frame(x) : object 'down_maize2_snp' not found
+
+```{r}
+down_maize1_snp <- read.csv("down_maize2_snp.csv")
+
+write.csv(down_maize2_snp, "edited-down_maize1_snps.csv", row.names = FALSE)
+```
+
+As mentioned in class you should not include install.packages()
+
+I got this error message for this chunk of code, I'm not sure what it means though...
+Error: no loop for break/next, jumping to top level
+
+```{r}
+ggplot(sample_summary_data, aes(x = Sample_ID)) +
+    geom_bar(aes(y = prop_homozygous, fill = "Homozygous"), alpha = 0.8, stat = "identity") +
+    geom_bar(aes(y = prop_heterozygous, fill = "Heterozygous"), alpha = 0.8, stat = "identity") +
+    geom_bar(aes(y = prop_missing, fill = "Missing"), alpha = 0.8, stat = "identity") +
+    scale_fill_manual(values = c("Homozygous" = "darkgreen", "Heterozygous" = "yellow", "Missing" = "gray")) +
+    scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+    labs(x = "Sample ID", y = "Proportion", fill = "Site Type", 
+         title = "Proportion of Homozygous, Heterozygous, and Missing Sites by Sample ID")
+```
+
+
